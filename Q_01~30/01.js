@@ -5,7 +5,7 @@ let nums = [100, 200, 300, 400, 500];
 
 // 풀이 
 
-let solution = nums.splice(3,2) // 인덱스 3번부터 2개의 요소 삭제
+let solution = nums.splice(3, 2) // 인덱스 3번부터 2개의 요소 삭제
 console.log(solution)
 console.log(nums) //! 원본 배열의 요소가 변한다. 
 

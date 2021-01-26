@@ -7,8 +7,60 @@
 
 
 // ? 풀이 
-// 1은  ->  0001  2는 -> 0010
+// 1은  ->  1    2는 -> 10   3은 11  4는 100 5는 101
 // 변환하려는 숫자를 2로나누어서 몫이 1이 될때까지.. 몫1과 나머지들을 역순으로 하면 2진수
 // 88은 2(88) 2(44), 2(22), 2(11), 2(5), 2(2), 1 와 같이 되는데
 // 나머지 0 0 0 1 1 0 이 되고 몫이 1이다. 이것을 역순으로 1 0 1 1 0 0 0 으로 만들면 된다.  (어렵다 ㅠㅠ)
 
+
+var num = prompt('10진수를 입력하세요');
+
+//let num = '3';
+let arr = [];
+
+// 입력된 숫자를 2로 나누어야한다. 
+
+// 4 / 2  ->   2 / 2  ->    1  
+//  0           0           1
+
+// for문 회차때마다 2가 나뉜 값으로 
+for (let i = num; i >= 1; i /= 2) {
+    // 소수점 자리는 없애버린다. 
+    let rest = Math.floor(i % 2);
+    arr.push(rest)
+}
+
+// 결과 값을 역순으로 바꾸고 join으로 한 문자열로 만들어준다.
+let getData = arr.reverse().join('');
+
+console.log(getData)
+
+// 숫자형으로 변경함
+let result = parseInt(getData, 10)
+
+console.log(result)
+
+
+
+
+// 해답 
+
+// 진수를 몰라서 좀 어려웠는데 방향은 얼추 맞은 것 같다.
+// while문과 forEach문으로 간결하게 알아보기 쉽게 작성하는게 포인트 인것 같다.
+
+
+let a = prompt('10진수를 입력해주세요.')
+let b = [];
+let result = '';
+
+while (a) {
+    b.push(a % 2);
+    a = parseInt(a / 2, 10);
+}
+b.reverse();
+
+b.forEach((n) => {
+    result += n;
+})
+
+console.log(result);

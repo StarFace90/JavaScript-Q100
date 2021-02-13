@@ -74,3 +74,31 @@ for (let key in c) {
 console.log("총 박수 갯수", count); // 갯수는 3,6,9 이후로 33,36,39, 63,66,69, 93,96,99  100개에서 총 12개가 나와야한다.
 // 1000개 일경우 -> (~100개까지의 갯수)12 + (333, 336, 339, 363,369,366, 393,396, 399, 633, 636,639, 663, 666, 669, 693, 696, 699, 933, 936, 939, 963, 966, 969, 993, 996, 999)갯수
 // 39개 
+
+
+
+
+
+
+
+// 해답
+
+// 정말 간결하게 풀었다..
+// 나는 중간에 반복문을 두번이나 썼고, with 메소드로 검색 시간도 오래걸렸을 것 같다.
+// const d = { 3: 1, 6: 2, 9: 3 }; 에 대한 것은 생각도 못했다.
+
+function sol(n) {
+    let answer = 0;
+    let count = 1;
+    const d = { 3: 1, 6: 2, 9: 3 };
+
+    while (n.length !== 0) {
+        answer += d[parseInt(n.pop(), 10)] * count;
+        count *= 3;
+    }
+    return answer;
+}
+
+const user_input = new String(prompt('입력해주세요')).split('');
+
+console.log(sol(user_input));
